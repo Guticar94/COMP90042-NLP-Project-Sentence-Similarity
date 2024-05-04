@@ -164,3 +164,4 @@ cython_debug/
 
 # Ignore big file
 evidence.json
+*.zip
