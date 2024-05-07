@@ -164,3 +164,7 @@ cython_debug/
 
 # Ignore big file
 evidence.json
+Models/Doc2Vec.model
+Models/Doc2Vec.model.dv.vectors.npy
+Models/Doc2Vec.model.wv.vectors.npy
+Models/Doc2Vec.model.syn1neg.npy
