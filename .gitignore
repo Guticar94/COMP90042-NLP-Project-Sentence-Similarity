@@ -163,7 +163,7 @@ cython_debug/
 .DS_Store
 
 # Ignore big file
-evidence.json
+data/*
 Models/Doc2Vec.model
 Models/Doc2Vec.model.dv.vectors.npy
 Models/Doc2Vec.model.wv.vectors.npy
