@@ -170,3 +170,4 @@ Models/Doc2Vec.model.wv.vectors.npy
 Models/Doc2Vec.model.syn1neg.npy
 Models/dfInferred.pkl
 Models/df_claims_Sims.pkl
+Models/devdfInferred.pkl
