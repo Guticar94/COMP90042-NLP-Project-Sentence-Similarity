@@ -57,7 +57,7 @@ def bid_lstm_model(vocab_size, embedding_dim, max_length, lstm_units, num_classe
     evidence_embeddings = embedding_layer(evidence_input)
 
     # Shared LSTM layers with L2 regularization
-    shared_lstm = Bidirectional(LSTM(lstm_units, return_sequences=True, dropout=0.1, recurrent_dropout=0.3, kernel_regularizer=l2(l2_lambda)))
+    shared_lstm = Bidirectional(LSTM(lstm_units, return_sequences=True, dropout=0.5, recurrent_dropout=0.3, kernel_regularizer=l2(l2_lambda)))
 
     # LSTM processing for both inputs
     claim_lstm = shared_lstm(claim_embeddings)
@@ -65,7 +65,7 @@ def bid_lstm_model(vocab_size, embedding_dim, max_length, lstm_units, num_classe
 
     # Concatenate the outputs from LSTM layers
     concatenated = Concatenate()([claim_lstm, evidence_lstm])
-    concatenated = Dropout(0.2)(concatenated)  # Increased dropout
+    concatenated = Dropout(0.5)(concatenated)  # Increased dropout
 
     # Flattening the concatenated outputs
     flattened = tf.keras.layers.Flatten()(concatenated)
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     validation_split=0.2
 
     # not being used at this stage
-    dropout=0.1
+    dropout=0.5
     activation='softmax'
     loss='categorical_crossentropy'
     metrics=['accuracy']
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     evidence_text = [preprocess_text(evidences_data[evidence_id]) for evidence_id in evidences_data]
     
     vocab = claims_text + dev_claims_text + evidence_text  # vocab
-    _, tokenizer = tokenize_and_pad(vocab)  # Shared tokenizer for vocab
+    _, tokenizer = tokenize_and_pad(vocab, max_len=max_length, vocab_size=vocab_size)  # Shared tokenizer for vocab
 
     padded_claims, _ = tokenize_and_pad(claims_text+dev_claims_text, max_len=max_length, vocab_size=vocab_size)
     padded_evidences, _ = tokenize_and_pad(evidence_text, max_len=max_length, vocab_size=vocab_size)
@@ -125,6 +125,6 @@ if __name__ == '__main__':
     labels, label_encoder = load_and_prepare_labels(_claims_data)
     
     # build / train model
-    #model = bid_lstm_model(vocab_size=vocab_size, embedding_dim=embedding_dim, max_length=max_length, lstm_units=lstm_units, num_classes=num_classes, learning_rate=learning_rate, l2_lambda=l2_lambda)
+    model = bid_lstm_model(vocab_size=vocab_size, embedding_dim=embedding_dim, max_length=max_length, lstm_units=lstm_units, num_classes=num_classes, learning_rate=learning_rate, l2_lambda=l2_lambda)
     #model = lstm_model_with_attention(vocab_size=vocab_size, embedding_dim=embedding_dim, max_length=max_length, lstm_units=lstm_units, num_classes=num_classes, learning_rate=learning_rate, l2_lambda=l2_lambda)
     history = train_model(model, [padded_claims, padded_evidences], labels, batch_size, epochs, validation_split)
