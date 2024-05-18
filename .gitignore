@@ -171,3 +171,7 @@ Models/Doc2Vec.model.syn1neg.npy
 Models/dfInferred.pkl
 Models/df_claims_Sims.pkl
 Models/devdfInferred.pkl
+Models/encoded_dev_claims.json
+Models/encoded_evidence.json
+Models/encoded_ts_claims.json
+.vscode/settings.json
