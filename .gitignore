@@ -168,6 +168,9 @@ Models/Doc2Vec.model
 Models/Doc2Vec.model.dv.vectors.npy
 Models/Doc2Vec.model.wv.vectors.npy
 Models/Doc2Vec.model.syn1neg.npy
+
+*.zip
+*.json
 Models/dfInferred.pkl
 Models/df_claims_Sims.pkl
 Models/devdfInferred.pkl
@@ -175,6 +178,7 @@ Models/encoded_dev_claims.json
 Models/encoded_evidence.json
 Models/encoded_ts_claims.json
 .vscode/settings.json
+
 Models/dfdevDoc2VecDevPredictions.pkl
 Models/dfDoc2VecPredictions.pkl
 Models/bm25_scores.pkl
