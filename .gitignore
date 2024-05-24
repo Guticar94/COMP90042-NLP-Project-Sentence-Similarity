@@ -175,3 +175,8 @@ Models/encoded_dev_claims.json
 Models/encoded_evidence.json
 Models/encoded_ts_claims.json
 .vscode/settings.json
+Models/dfdevDoc2VecDevPredictions.pkl
+Models/dfDoc2VecPredictions.pkl
+Models/bm25_scores.pkl
+Models/doc2vec_similarities.pkl
+Models/evidences_df.pkl
