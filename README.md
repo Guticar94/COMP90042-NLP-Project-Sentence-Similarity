@@ -2,33 +2,13 @@
 
 The competition rules are specified in: https://github.com/drcarenhan/COMP90042_2024/tree/main
 
-# Automated Fact-Checking System for Climate Science - Project Notebooks
+# Evidence-Based Climate Science: Developing an Automated Fact-Checking System - Project Notebooks
 
 This repository contains the Jupyter notebooks used for the development of an automated fact-checking system to address misinformation in climate science. The project is divided into several notebooks, each focusing on a specific technique, from data preprocessing to model evaluation.
 
 ## Notebooks Summary
 
-### 1. Data_Preprocessing.ipynb
-**Purpose:** 
-- Preprocess the text data to prepare it for the information retrieval and classification tasks.
-
-**Key Steps:**
-- Tokenization: Splitting text into tokens.
-- Case Folding: Converting text to lowercase.
-- Stopword Removal: Removing common words using the NLTK stopwords module.
-- Lemmatization: Reducing words to their root forms using WordNetLemmatizer.
-- NER & POS Tagging: Enhancing contextual representation using spaCy for Named Entity Recognition (NER) and Part of Speech (POS) tagging.
-
-### 2. Information_Retrieval_Doc2Vec_BM25.ipynb
-**Purpose:** 
-- Implement and evaluate the Doc2Vec + BM25 model for retrieving relevant evidence.
-
-**Key Steps:**
-- Training the Doc2Vec model to capture semantic meanings.
-- Applying BM25 for keyword-based document ranking.
-- Combining Doc2Vec semantic similarity with BM25 relevance scores.
-
-### 3. Information_Retrieval_SBERT.ipynb
+### 1. SBERT.ipynb
 **Purpose:** 
 - Implement and evaluate the SBERT model for semantic textual similarity and information retrieval.
 
@@ -37,32 +17,43 @@ This repository contains the Jupyter notebooks used for the development of an au
 - Generating similarity scores for claim-evidence pairs using Cosine Similarity.
 - Evaluating the model performance based on retrieval accuracy.
 
-### 4. Information_Retrieval_TFIDF.ipynb
+### 2. SBERT_similarity.ipynb
 **Purpose:** 
-- Implement and evaluate the TF-IDF model for information retrieval.
+- Further refine and test the SBERT model for improved semantic similarity measures.
 
 **Key Steps:**
-- Transforming text data into TF-IDF representations.
+- Fine-tuning SBERT model parameters.
+- Conducting similarity scoring on enhanced datasets.
+- Comparing the refined model's performance with initial SBERT implementation.
+
+### 3. TF-IDF + POS + NER base.ipynb
+**Purpose:** 
+- Implement and evaluate a TF-IDF model augmented with Part of Speech (POS) and Named Entity Recognition (NER) tagging.
+
+**Key Steps:**
+- Preprocessing text data with POS and NER tagging using spaCy.
+- Transforming text into TF-IDF representations.
 - Calculating similarity scores using cosine similarity.
 - Evaluating the effectiveness of the TF-IDF model in retrieving relevant evidence.
 
-### 5. Multi_Class_Classification_SVM.ipynb
+### 4. Doc2Vec_v2.ipynb
 **Purpose:** 
-- Develop and evaluate a multi-class classification model using SVM.
+- Implement and evaluate the Doc2Vec + BM25 model for retrieving relevant evidence and enhancing classification tasks.
 
 **Key Steps:**
-- Preprocessing and concatenating data for SVM input.
-- Applying PCA for dimensionality reduction.
-- Training and evaluating the SVM classifier with RBF kernel.
+- Training the Doc2Vec model to capture semantic meanings.
+- Generating vector representations for claims and evidence.
+- Evaluating model performance based on retrieval accuracy and classification metrics.
 
-### 6. Multi_Class_Classification_Doc2Vec_LR.ipynb
+### 5. TF-IDF + SVM classifier.ipynb
 **Purpose:** 
-- Develop and evaluate a multi-class classification model using Doc2Vec and Logistic Regression.
+- Develop and evaluate a multi-class classification model using TF-IDF representations and an SVM classifier.
 
 **Key Steps:**
-- Generating dense vector representations using Doc2Vec.
-- Training a Logistic Regression model on the vectors.
-- Classifying claims into predefined labels based on evidence.
+- Preprocessing and transforming text data into TF-IDF representations.
+- Applying Principal Component Analysis (PCA) for dimensionality reduction.
+- Training an SVM classifier with RBF kernel on the TF-IDF features.
+- Evaluating model performance based on classification accuracy and F1 score.
 
 ## How to Use
 1. Open the notebooks in Jupyter Notebook or JupyterLab.
@@ -73,5 +64,3 @@ Each notebook contains the list of the required libraries.
 
 ## License
 This project is licensed under the Unimelb License.
-
----
