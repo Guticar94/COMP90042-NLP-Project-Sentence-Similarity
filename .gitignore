@@ -189,3 +189,5 @@ Models/dev_bm25_scores.pkl
 Models/dev_doc2vec_similarities.pkl
 Models/ranked_index.pkl
 Models/ranked_indices.pkl
+Models/claims_df100.pkl
+Models/evidences_df100.pkl
